@@ -1,403 +1,277 @@
 <!DOCTYPE html>
-<html lang="ru" class="dark scroll-smooth">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Прайс-лист на арты | nast_kotoed</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                    },
-                    colors: {
-                        mushroom: {
-                            50: '#fff7ed',
-                            100: '#ffedd5',
-                            200: '#fed7aa',
-                            400: '#fb923c',
-                            500: '#f97316',
-                            600: '#ea580c',
-                            800: '#9a3412',
-                            900: '#431407',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
-
+    <title>Прайс-лист на Арт</title>
     <style>
-        .bg-grid-pattern {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-            background-size: 28px 28px;
+        :root {
+            --bg-color: #121214;
+            --card-bg: #1e1e24;
+            --accent-color: #7289da;
+            --accent-hover: #5b6eae;
+            --text-main: #e1e1e6;
+            --text-muted: #a0a0b0;
+            --border-color: #2b2b36;
         }
-        .shimmer-badge {
-            background: linear-gradient(90deg, rgba(244, 63, 94, 0.15) 0%, rgba(251, 146, 60, 0.25) 50%, rgba(244, 63, 94, 0.15) 100%);
-            background-size: 200% 100%;
-            animation: shimmer 4s infinite linear;
+
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
         }
-        @keyframes shimmer {
-            0% { background-position: -200% 0; }
-            100% { background-position: 200% 0; }
+
+
+        .container {
+            max-width: 900px;
+            width: 100%;
+        }
+
+
+        h1, h2, h3 {
+            text-align: center;
+            color: #ffffff;
+        }
+
+
+        .section {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+            margin-top: 16px;
+        }
+
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent-color);
+        }
+
+
+        .price-tag {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-top: 8px;
+        }
+
+
+        /* Gallery */
+        .gallery-placeholder {
+            background-color: rgba(0, 0, 0, 0.2);
+            border: 2px dashed var(--border-color);
+            border-radius: 8px;
+            padding: 40px 20px;
+            text-align: center;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+
+        /* Calculator */
+        .calc-group {
+            margin-bottom: 16px;
+        }
+
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--text-muted);
+        }
+
+
+        select, input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            background-color: #141418;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            box-sizing: border-box;
+        }
+
+
+        .total-box {
+            background-color: rgba(114, 137, 218, 0.1);
+            border: 1px solid var(--accent-color);
+            border-radius: 8px;
+            padding: 16px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+
+        .total-price {
+            font-size: 1.4em;
+            font-weight: bold;
+            color: #ffffff;
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans min-h-screen bg-grid-pattern relative selection:bg-mushroom-500 selection:text-white pb-16">
+<body>
 
-    <header class="sticky top-0 z-40 backdrop-blur-xl bg-slate-950/85 border-b border-slate-800/80">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <span class="text-2xl">🐱🍄</span>
-                <div>
-                    <h1 class="font-extrabold text-base sm:text-lg leading-none bg-gradient-to-r from-orange-300 via-rose-300 to-amber-200 bg-clip-text text-transparent">
-                        nast_kotoed
-                    </h1>
-                    <span class="text-[11px] text-slate-400 font-medium">Арт-коммишки & Прайс-лист</span>
-                </div>
+
+<div class="container">
+    <h1>Прайс-лист на Арт</h1>
+
+
+    <!-- Форматы полноценного арта -->
+    <div class="section">
+        <h2>Форматы Полноценного Арта</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Headshot</h3>
+                <p>Портрет персонажа по плечи</p>
+                <div class="price-tag">Базовая цена</div>
             </div>
-
-            <!-- Quick Navigation Anchor Links -->
-            <nav class="flex items-center gap-4 sm:gap-6 text-xs font-semibold text-slate-400">
-                <a href="#prices" class="hover:text-amber-300 transition-colors">Цены</a>
-                <a href="#terms" class="hover:text-amber-300 transition-colors">Условия & ДД</a>
-                <a href="#rules" class="hover:text-amber-300 transition-colors">Что рисую</a>
-                <a href="#contacts" class="hover:text-amber-300 transition-colors">Заказ</a>
-            </nav>
+            <div class="card">
+                <h3>Halfbody</h3>
+                <p>Арт персонажа по пояс / бедра</p>
+                <div class="price-tag">Базовая цена</div>
+            </div>
+            <div class="card">
+                <h3>Fullbody</h3>
+                <p>Персонаж в полный рост</p>
+                <div class="price-tag">Базовая цена</div>
+            </div>
         </div>
-    </header>
+    </div>
 
-    <main class="max-w-5xl mx-auto px-4 sm:px-6 pt-8 space-y-12">
 
-        <section class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-slate-900 to-mushroom-950/40 border border-slate-800 p-6 sm:p-10">
-            <div class="absolute -top-12 -right-12 w-60 h-60 bg-mushroom-500/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute -bottom-12 -left-12 w-60 h-60 bg-rose-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-                <div class="space-y-4 max-w-xl">
-                    <!-- Promo Tag -->
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full shimmer-badge border border-rose-500/30 text-rose-300 text-xs font-bold uppercase tracking-wider">
-                        <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
-                        🔥 Действует скидка -30%!
-                    </div>
-
-                    <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
-                        Заказ цифровых артов
-                    </h2>
-
-                    <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Ниже указана актуальная информация по расценкам, срокам и правилам заказа. Принимаю оплату в <strong class="text-emerald-400 font-semibold">рублях (₽)</strong> или в <strong class="text-amber-300 font-semibold">игровых грибах (🍄)</strong>.
-                    </p>
-                </div>
-
-                <!-- Currency Exchange Rate Card -->
-                <div class="w-full md:w-auto bg-slate-950/80 border border-amber-500/30 rounded-2xl p-5 flex items-center gap-4 shrink-0">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-2xl">
-                        💱
-                    </div>
-                    <div>
-                        <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Курс обмена</span>
-                        <div class="text-lg font-black text-amber-300">1 ₽ = 1,000 🍄</div>
-                        <span class="text-[11px] text-slate-400">Пересчет игровой валюты точный</span>
-                    </div>
-                </div>
+    <!-- Скетчевые варианты -->
+    <div class="section">
+        <h2>Скетчевые варианты</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Скетчевый арт</h3>
+                <p>Арт с аккуратным лайн-артом и базовым покрасом</p>
+                <div class="price-tag">-35% от цены формата</div>
             </div>
-        </section>
-
-        <section id="prices" class="space-y-6">
-            <div class="text-center max-w-2xl mx-auto space-y-2">
-                <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Прайс-лист / Форматы артов</h3>
-                <p class="text-slate-400 text-xs sm:text-sm">
-                    Перечеркнута базовая цена. Зеленым и желтым выделена итоговая стоимость со скидкой -30%!
-                </p>
+            <div class="card">
+                <h3>Простой скетч</h3>
+                <p>Быстрый набросок с легким тоном или монохромом</p>
+                <div class="price-tag">-50% от цены формата</div>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4">
-
-                <!-- CARD 1: HEADSHOT -->
-                <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group">
-                    <div class="space-y-4">
-                        <!-- Artwork Placeholder -->
-                        <div class="w-full h-44 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden relative flex items-center justify-center">
-                            <img src="https://placehold.co/400x300/1e293b/94a3b8?text=%D0%9F%D0%BE%D1%80%D1%82%D1%80%D0%B5%D1%82+%2F+%D0%A5%D0%B5%D0%B4" 
-                                 alt="Пример: Голова" 
-                                 class="w-full h-full object-cover opacity-80">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                            <span class="absolute bottom-3 left-3 text-xs font-semibold text-slate-300 bg-slate-900/90 px-2.5 py-1 rounded-md border border-slate-800">
-                                👤 Голова / Хед
-                            </span>
-                        </div>
-
-                        <div>
-                            <h4 class="text-xl font-bold text-white">Голова (Headshot)</h4>
-                            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
-                                Арт персонажа по грудь / плечи.
-                            </p>
-                        </div>
-
-                        <!-- Price Breakdown -->
-                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800/80 space-y-3">
-                            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Цена со скидкой:</div>
-                            
-                            <div class="flex items-baseline justify-between">
-                                <span class="text-xs text-slate-400">Рубли:</span>
-                                <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">700 ₽</span>
-                                    <span class="text-xl font-black text-emerald-400">490 ₽</span>
-                                </div>
-                            </div>
-
-                            <div class="flex items-baseline justify-between pt-2 border-t border-slate-800/60">
-                                <span class="text-xs text-slate-400">Грибы:</span>
-                                <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">700,000 🍄</span>
-                                    <span class="text-base font-bold text-amber-300">490,000 🍄</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 2: HALFBODY -->
-                <div class="bg-slate-900/90 border-2 border-mushroom-500/40 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group shadow-lg shadow-mushroom-500/5">
-                    <div class="absolute top-0 right-0 bg-gradient-to-l from-mushroom-500 to-rose-500 text-white text-[10px] font-black px-4 py-1 rounded-bl-xl uppercase tracking-wider">
-                        Популярно
-                    </div>
-
-                    <div class="space-y-4">
-                        <!-- Artwork Placeholder -->
-                        <div class="w-full h-44 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden relative flex items-center justify-center">
-                            <img src="https://placehold.co/400x300/1e293b/94a3b8?text=%D0%9F%D0%BE%D0%BB%D1%83%D1%82%D0%B5%D0%BB%D0%BE+%2F+%D0%A5%D0%B0%D0%BB%D1%84" 
-                                 alt="Пример: Халф" 
-                                 class="w-full h-full object-cover opacity-80">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                            <span class="absolute bottom-3 left-3 text-xs font-semibold text-slate-300 bg-slate-900/90 px-2.5 py-1 rounded-md border border-slate-800">
-                                🧍‍♂️ Халф / Halfbody
-                            </span>
-                        </div>
-
-                        <div>
-                            <h4 class="text-xl font-bold text-white">Халф (Halfbody)</h4>
-                            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
-                                Арт персонажа по пояс / бедра.
-                            </p>
-                        </div>
-
-                        <!-- Price Breakdown -->
-                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800/80 space-y-3">
-                            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Цена со скидкой:</div>
-                            
-                            <div class="flex items-baseline justify-between">
-                                <span class="text-xs text-slate-400">Рубли:</span>
-                                <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">1,200 ₽</span>
-                                    <span class="text-xl font-black text-emerald-400">840 ₽</span>
-                                </div>
-                            </div>
-
-                            <div class="flex items-baseline justify-between pt-2 border-t border-slate-800/60">
-                                <span class="text-xs text-slate-400">Грибы:</span>
-                                <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">1,200,000 🍄</span>
-                                    <span class="text-base font-bold text-amber-300">840,000 🍄</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CARD 3: FULLBODY -->
-                <div class="bg-slate-900/90 border border-slate-800 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group">
-                    <div class="space-y-4">
-                        <!-- Artwork Placeholder -->
-                        <div class="w-full h-44 rounded-2xl bg-slate-950 border border-slate-800 overflow-hidden relative flex items-center justify-center">
-                            <img src="https://placehold.co/400x300/1e293b/94a3b8?text=%D0%9F%D0%BE%D0%BB%D0%BD%D1%8B%D0%B9+%D1%80%D0%BE%D1%81%D1%82+%2F+%D0%A4%D1%83%D0%BB%D0%BB" 
-                                 alt="Пример: Фулл" 
-                                 class="w-full h-full object-cover opacity-80">
-                            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
-                            <span class="absolute bottom-3 left-3 text-xs font-semibold text-slate-300 bg-slate-900/90 px-2.5 py-1 rounded-md border border-slate-800">
-                                🧍 Фулл / Fullbody
-                            </span>
-                        </div>
-
-                        <div>
-                            <h4 class="text-xl font-bold text-white">Фулл (Fullbody)</h4>
-                            <p class="text-slate-400 text-xs mt-1 leading-relaxed">
-                                Персонаж в полный рост.
-                            </p>
-                        </div>
-
-                        <!-- Price Breakdown -->
-                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800/80 space-y-3">
-                            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Цена со скидкой:</div>
-                            
-                            <div class="flex items-baseline justify-between">
-                                <span class="text-xs text-slate-400">Рубли:</span>
-                                <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">1,700 ₽</span>
-                                    <span class="text-xl font-black text-emerald-400">1,190 ₽</span>
-                                </div>
-                            </div>
-
-                            <div class="flex items-baseline justify-between pt-2 border-t border-slate-800/60">
-                                <span class="text-xs text-slate-400">Грибы:</span>
-                                <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">1,700,000 🍄</span>
-                                    <span class="text-base font-bold text-amber-300">1,190,000 🍄</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="terms" class="space-y-6 pt-4">
-            <div class="border-t border-slate-800/80 pt-8">
-                <h3 class="text-2xl font-extrabold text-white mb-2 flex items-center gap-3">
-                    <i class="fa-solid fa-clock text-amber-400"></i> Сроки выполнения & Дедлайн (ДД)
-                </h3>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Standard Timing -->
-                <div class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 space-y-3">
-                    <div class="text-amber-400 text-2xl font-black"><i class="fa-solid fa-calendar-days"></i></div>
-                    <h4 class="text-lg font-bold text-white">Стандартный срок</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Стандартное время рисования арта составляет <strong class="text-white font-semibold">от 2 недель до 3 месяцев</strong> (в зависимости от сложности, очереди и жизненных обстоятельств).
-                    </p>
-                </div>
-
-                <!-- Custom Fix Deadline Option -->
-                <div class="bg-slate-900/60 border border-amber-500/30 rounded-3xl p-6 space-y-3 relative overflow-hidden">
-                    <div class="text-emerald-400 text-2xl font-black"><i class="fa-solid fa-bolt"></i></div>
-                    <h4 class="text-lg font-bold text-white">Свой дедлайн (Срочный заказ)</h4>
-                    <p class="text-slate-300 text-sm leading-relaxed">
-                        Если арт нужен строго к определенной дате (праздник, день рождения и т.д.):
-                    </p>
-                    <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs sm:text-sm font-semibold text-emerald-400">
-                        ➕ Фиксированная доплата: <span class="text-white font-extrabold">400 ₽</span> (или <span class="text-amber-300 font-extrabold">400,000 🍄</span>)
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="rules" class="space-y-6 pt-4">
-            <div class="border-t border-slate-800/80 pt-8">
-                <h3 class="text-2xl font-extrabold text-white mb-2 flex items-center gap-3">
-                    <i class="fa-solid fa-palette text-rose-400"></i> Что я рисую / Предпочтения
-                </h3>
-                <p class="text-slate-400 text-xs sm:text-sm">Основные моменты, с которыми я работаю:</p>
-            </div>
-
-            <div class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
-                <!-- Summary Header -->
-                <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm font-semibold flex items-center gap-3">
-                    <span class="text-2xl">✨</span>
-                    <span><strong>В целом:</strong> Рисую «ДА» почти на всё, но со своими нюансами ниже!</span>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
-                    <!-- Main Focus / DOs -->
-                    <div class="space-y-3">
-                        <h4 class="font-bold text-emerald-400 text-base flex items-center gap-2">
-                            <i class="fa-solid fa-thumbs-up"></i> Что рисую с удовольствием:
-                        </h4>
-                        <ul class="space-y-2 text-slate-300">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-cat text-amber-400 mt-1"></i>
-                                <span><strong>Котов / Собак</strong> — в основном специализируюсь на них! (Референсы очень приветствуются).</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
-                                <span>Все остальное (люди, фури, фанарты и т.д.) — <strong>тоже ДА!</strong></span>
-                            </li>
-                        </ul>
-                    </div>
-
-                    <!-- Limits & Exceptions -->
-                    <div class="space-y-3">
-                        <h4 class="font-bold text-rose-400 text-base flex items-center gap-2">
-                            <i class="fa-solid fa-triangle-exclamation"></i> Нюансы и ограничения:
-                        </h4>
-                        <ul class="space-y-2 text-slate-300">
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-xmark text-rose-400 mt-1"></i>
-                                <span><strong>Механика</strong> — НЕ рисую.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-city text-amber-400 mt-1"></i>
-                                <span>Есть сложности с детальными <strong>городами и сложными постройками</strong>.</span>
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="fa-solid fa-circle-exclamation text-rose-300 mt-1"></i>
-                                <span><strong>18+ / NSFW</strong> — рисую, но имею не много опыта в этом, поэтому берется только <strong class="text-rose-300">на страх и риск заказчика</strong>!</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contacts" class="pt-6">
-            <div class="bg-gradient-to-r from-slate-900 via-slate-900 to-mushroom-950/60 border border-slate-800 rounded-3xl p-8 text-center space-y-6">
-                <div class="max-w-xl mx-auto space-y-2">
-                    <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-2xl mx-auto mb-3">
-                        📩
-                    </div>
-                    <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Как сделать заказ?</h3>
-                    <p class="text-slate-300 text-xs sm:text-sm">
-                        Для оформления заказа пишите прямо в наш Telegram Бот! Также подписывайтесь на основной канал с работами.
-                    </p>
-                </div>
-
-                <!-- Contact Links -->
-                <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto pt-2">
-                    <!-- Telegram Bot Link -->
-                    <a href="https://t.me/nastkotoed_zakaz_bot" target="_blank" rel="noopener noreferrer" 
-                       class="flex-1 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold px-6 py-4 rounded-2xl flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-sky-500/20">
-                        <i class="fa-solid fa-robot text-2xl"></i>
-                        <div class="text-left">
-                            <span class="text-[10px] text-sky-200 uppercase tracking-wider font-extrabold block">Оформить заказ</span>
-                            <span class="text-sm font-bold">@nastkotoed_zakaz_bot</span>
-                        </div>
-                    </a>
-
-                    <!-- Telegram Channel Link -->
-                    <a href="https://t.me/nast_kotoed" target="_blank" rel="noopener noreferrer" 
-                       class="flex-1 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold px-6 py-4 rounded-2xl flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5">
-                        <i class="fa-brands fa-telegram text-sky-400 text-2xl"></i>
-                        <div class="text-left">
-                            <span class="text-[10px] text-slate-400 uppercase tracking-wider font-extrabold block">Мой ТГ КАНАЛ</span>
-                            <span class="text-sm font-bold">t.me/nast_kotoed</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="mt-16 border-t border-slate-900 text-center py-6 text-xs text-slate-500">
-        <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <span>© nast_kotoed. Все права защищены.</span>
-            <span class="text-[11px] text-slate-600">Курс грибов: 1 ₽ = 1,000 🍄</span>
         </div>
-    </footer>
+    </div>
+
+
+    <!-- Галерея -->
+    <div class="section">
+        <h2>Галерея работ</h2>
+        <div class="gallery-placeholder">
+            Временно отсутствуют. Будет дополняться
+        </div>
+    </div>
+
+
+    <!-- Калькулятор -->
+    <div class="section">
+        <h2>Калькулятор стоимости</h2>
+        
+        <div class="calc-group">
+            <label for="format">Выберите формат:</label>
+            <select id="format" onchange="calculateTotal()">
+                <option value="head">Headshot</option>
+                <option value="half">Halfbody</option>
+                <option value="full">Fullbody</option>
+            </select>
+        </div>
+
+
+        <div class="calc-group">
+            <label for="style">Выберите стиль исполнения:</label>
+            <select id="style" onchange="calculateTotal()">
+                <option value="full_art">Полноценный арт (100%)</option>
+                <option value="sketch_art">Скетчевый арт (-35%)</option>
+                <option value="simple_sketch">Простой скетч (-50%)</option>
+            </select>
+        </div>
+
+
+        <div class="calc-group">
+            <label for="characters">Количество персонажей:</label>
+            <input type="number" id="characters" value="1" min="1" max="5" onchange="calculateTotal()" oninput="calculateTotal()">
+        </div>
+
+
+        <div class="total-box">
+            <div>Итоговая стоимость:</div>
+            <div class="total-price" id="total-result">0 Руб / 0 Грибов / 0 Кролей</div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // Базовые цены для полноценных артов (укажите нужные значения)
+    const basePrices = {
+        head: { rub: 500, shrooms: 50, rabbits: 5 },
+        half: { rub: 800, shrooms: 80, rabbits: 8 },
+        full: { rub: 1200, shrooms: 120, rabbits: 12 }
+    };
+
+
+    // Множители для стилей
+    const styleMultipliers = {
+        full_art: 1.0,
+        sketch_art: 0.65,      // -35%
+        simple_sketch: 0.50     // -50%
+    };
+
+
+    function calculateTotal() {
+        const format = document.getElementById('format').value;
+        const style = document.getElementById('style').value;
+        const count = parseInt(document.getElementById('characters').value) || 1;
+
+
+        const base = basePrices[format];
+        const multiplier = styleMultipliers[style];
+
+
+        const totalRub = Math.round(base.rub * multiplier * count);
+        const totalShrooms = Math.round(base.shrooms * multiplier * count);
+        const totalRabbits = Math.round(base.rabbits * multiplier * count);
+
+
+        document.getElementById('total-result').innerText = 
+            `${totalRub} Руб / ${totalShrooms} Грибов / ${totalRabbits} Кролей`;
+    }
+
+
+    // Инициализация расчета при загрузке
+    calculateTotal();
+</script>
+
 
 </body>
 </html>
+
+
+
