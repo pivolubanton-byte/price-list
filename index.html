@@ -52,7 +52,6 @@
             0% { background-position: -200% 0; }
             100% { background-position: 200% 0; }
         }
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -73,7 +72,7 @@
     <header class="sticky top-0 z-40 backdrop-blur-xl bg-slate-950/85 border-b border-slate-800/80">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <span class="text-2xl">🐱🍄</span>
+                <span class="text-2xl">🐱🐰🍄</span>
                 <div>
                     <h1 class="font-extrabold text-base sm:text-lg leading-none bg-gradient-to-r from-orange-300 via-rose-300 to-amber-200 bg-clip-text text-transparent">
                         nast_kotoed
@@ -82,13 +81,13 @@
                 </div>
             </div>
 
-            <!-- Quick Navigation Anchor Links -->
+            <!-- Navigation Links -->
             <nav class="hidden md:flex items-center gap-6 text-xs font-semibold text-slate-400">
                 <a href="#prices" class="hover:text-amber-300 transition-colors">Цены</a>
+                <a href="#sketches" class="hover:text-amber-300 transition-colors">Скетчи</a>
                 <a href="#calculator" class="hover:text-amber-300 transition-colors">Калькулятор</a>
                 <a href="#gallery" class="hover:text-amber-300 transition-colors">Галерея</a>
                 <a href="#terms" class="hover:text-amber-300 transition-colors">Условия</a>
-                <a href="#contacts" class="hover:text-amber-300 transition-colors">Заказ</a>
             </nav>
 
             <a href="#calculator" class="md:hidden bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-bold px-3 py-1.5 rounded-xl flex items-center gap-1.5">
@@ -107,7 +106,7 @@
                 <div class="space-y-4 max-w-xl">
                     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full shimmer-badge border border-rose-500/30 text-rose-300 text-xs font-bold uppercase tracking-wider">
                         <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
-                        🔥 Действует скидка -30%!
+                        🔥 Акция -30% на Рубли и Грибы!
                     </div>
 
                     <h2 class="text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
@@ -115,29 +114,41 @@
                     </h2>
 
                     <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                        Ниже указана актуальная информация по расценкам, срокам и правилам заказа. Принимаю оплату в <strong class="text-emerald-400 font-semibold">рублях (₽)</strong> или в <strong class="text-amber-300 font-semibold">игровых грибах (🍄)</strong>.
+                        Ниже указана актуальная информация по расценкам, срокам и правилам заказа. Принимаю оплату в <strong class="text-emerald-400 font-semibold">рублях (₽)</strong>, <strong class="text-amber-300 font-semibold">игровых грибах (🍄)</strong> или в <strong class="text-pink-300 font-semibold">кролях (🐰)</strong>.
                     </p>
                 </div>
 
-                <!-- Currency Exchange Rate Card -->
-                <div class="w-full md:w-auto bg-slate-950/80 border border-amber-500/30 rounded-2xl p-5 flex items-center gap-4 shrink-0 shadow-lg shadow-amber-500/5">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-2xl">
-                        💱
+                <!-- Currency Info Cards -->
+                <div class="w-full md:w-auto flex flex-col gap-3 shrink-0">
+                    <div class="bg-slate-950/80 border border-amber-500/30 rounded-2xl p-4 flex items-center gap-3 shadow-lg">
+                        <div class="w-10 h-10 rounded-xl bg-amber-500/10 border border-amber-500/20 flex items-center justify-center text-xl">
+                            🍄
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Курс грибов</span>
+                            <div class="text-base font-black text-amber-300">1 ₽ = 1,000 🍄</div>
+                        </div>
                     </div>
-                    <div>
-                        <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Курс обмена</span>
-                        <div class="text-lg font-black text-amber-300">1 ₽ = 1,000 🍄</div>
-                        <span class="text-[11px] text-slate-400">Пересчет игровой валюты точный</span>
+
+                    <div class="bg-slate-950/80 border border-pink-500/30 rounded-2xl p-4 flex items-center gap-3 shadow-lg">
+                        <div class="w-10 h-10 rounded-xl bg-pink-500/10 border border-pink-500/20 flex items-center justify-center text-xl">
+                            🐰
+                        </div>
+                        <div>
+                            <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider block">Курс Кролей</span>
+                            <div class="text-base font-black text-pink-300">1 ₽ = 2 🐰 <span class="text-[10px] text-slate-400 font-normal">(Без акций)</span></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- Основной Прайс-лист -->
         <section id="prices" class="space-y-6">
             <div class="text-center max-w-2xl mx-auto space-y-2">
                 <h3 class="text-2xl sm:text-3xl font-extrabold text-white">Прайс-лист / Форматы артов</h3>
                 <p class="text-slate-400 text-xs sm:text-sm">
-                    Перечеркнута базовая цена. Зеленым и желтым выделена итоговая стоимость со скидкой -30%!
+                    На рубли и грибы действует акция -30%. Оплата в <strong class="text-pink-300">Кролях (🐰)</strong> рассчитывается по базовому курсу без акций (1 ₽ = 2 🐰).
                 </p>
             </div>
 
@@ -163,23 +174,26 @@
                             </p>
                         </div>
 
-                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800/80 space-y-3">
-                            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Цена со скидкой:</div>
-                            
+                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800/80 space-y-2.5">
                             <div class="flex items-baseline justify-between">
-                                <span class="text-xs text-slate-400">Рубли:</span>
+                                <span class="text-xs text-slate-400">Рубли (-30%):</span>
                                 <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">700 ₽</span>
-                                    <span class="text-xl font-black text-emerald-400">490 ₽</span>
+                                    <span class="line-through text-slate-500 text-[11px] mr-1">700 ₽</span>
+                                    <span class="text-lg font-black text-emerald-400">490 ₽</span>
                                 </div>
                             </div>
 
-                            <div class="flex items-baseline justify-between pt-2 border-t border-slate-800/60">
-                                <span class="text-xs text-slate-400">Грибы:</span>
+                            <div class="flex items-baseline justify-between pt-1.5 border-t border-slate-800/60">
+                                <span class="text-xs text-slate-400">Грибы (-30%):</span>
                                 <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">700,000 🍄</span>
-                                    <span class="text-base font-bold text-amber-300">490,000 🍄</span>
+                                    <span class="line-through text-slate-500 text-[11px] mr-1">700k</span>
+                                    <span class="text-sm font-bold text-amber-300">490,000 🍄</span>
                                 </div>
+                            </div>
+
+                            <div class="flex items-baseline justify-between pt-1.5 border-t border-slate-800/60">
+                                <span class="text-xs text-pink-300 font-semibold">Кроли (1₽ = 2🐰):</span>
+                                <span class="text-base font-black text-pink-400">1,400 🐰</span>
                             </div>
                         </div>
                     </div>
@@ -212,23 +226,26 @@
                             </p>
                         </div>
 
-                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800/80 space-y-3">
-                            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Цена со скидкой:</div>
-                            
+                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800/80 space-y-2.5">
                             <div class="flex items-baseline justify-between">
-                                <span class="text-xs text-slate-400">Рубли:</span>
+                                <span class="text-xs text-slate-400">Рубли (-30%):</span>
                                 <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">1,200 ₽</span>
-                                    <span class="text-xl font-black text-emerald-400">840 ₽</span>
+                                    <span class="line-through text-slate-500 text-[11px] mr-1">1,200 ₽</span>
+                                    <span class="text-lg font-black text-emerald-400">840 ₽</span>
                                 </div>
                             </div>
 
-                            <div class="flex items-baseline justify-between pt-2 border-t border-slate-800/60">
-                                <span class="text-xs text-slate-400">Грибы:</span>
+                            <div class="flex items-baseline justify-between pt-1.5 border-t border-slate-800/60">
+                                <span class="text-xs text-slate-400">Грибы (-30%):</span>
                                 <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">1,200,000 🍄</span>
-                                    <span class="text-base font-bold text-amber-300">840,000 🍄</span>
+                                    <span class="line-through text-slate-500 text-[11px] mr-1">1.2M</span>
+                                    <span class="text-sm font-bold text-amber-300">840,000 🍄</span>
                                 </div>
+                            </div>
+
+                            <div class="flex items-baseline justify-between pt-1.5 border-t border-slate-800/60">
+                                <span class="text-xs text-pink-300 font-semibold">Кроли (1₽ = 2🐰):</span>
+                                <span class="text-base font-black text-pink-400">2,400 🐰</span>
                             </div>
                         </div>
                     </div>
@@ -257,23 +274,26 @@
                             </p>
                         </div>
 
-                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800/80 space-y-3">
-                            <div class="text-[10px] uppercase font-bold text-slate-400 tracking-wider">Цена со скидкой:</div>
-                            
+                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800/80 space-y-2.5">
                             <div class="flex items-baseline justify-between">
-                                <span class="text-xs text-slate-400">Рубли:</span>
+                                <span class="text-xs text-slate-400">Рубли (-30%):</span>
                                 <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">1,700 ₽</span>
-                                    <span class="text-xl font-black text-emerald-400">1,190 ₽</span>
+                                    <span class="line-through text-slate-500 text-[11px] mr-1">1,700 ₽</span>
+                                    <span class="text-lg font-black text-emerald-400">1,190 ₽</span>
                                 </div>
                             </div>
 
-                            <div class="flex items-baseline justify-between pt-2 border-t border-slate-800/60">
-                                <span class="text-xs text-slate-400">Грибы:</span>
+                            <div class="flex items-baseline justify-between pt-1.5 border-t border-slate-800/60">
+                                <span class="text-xs text-slate-400">Грибы (-30%):</span>
                                 <div class="text-right">
-                                    <span class="line-through text-slate-500 text-xs mr-1">1,700,000 🍄</span>
-                                    <span class="text-base font-bold text-amber-300">1,190,000 🍄</span>
+                                    <span class="line-through text-slate-500 text-[11px] mr-1">1.7M</span>
+                                    <span class="text-sm font-bold text-amber-300">1,190,000 🍄</span>
                                 </div>
+                            </div>
+
+                            <div class="flex items-baseline justify-between pt-1.5 border-t border-slate-800/60">
+                                <span class="text-xs text-pink-300 font-semibold">Кроли (1₽ = 2🐰):</span>
+                                <span class="text-base font-black text-pink-400">3,400 🐰</span>
                             </div>
                         </div>
                     </div>
@@ -285,6 +305,113 @@
             </div>
         </section>
 
+        <!-- Блок скетчевых вариантов -->
+        <section id="sketches" class="space-y-6 pt-4">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <h3 class="text-2xl sm:text-3xl font-extrabold text-white flex items-center justify-center gap-3">
+                    ✏️ Скетчевые варианты
+                </h3>
+                <p class="text-slate-400 text-xs sm:text-sm">
+                    Более быстрые и бюджетные варианты. Цены в кролях рассчитываются от баз. прайса (без скидки -30%).
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+                <!-- Блок 1: Скетчевый арт -->
+                <div class="bg-slate-900/90 border border-amber-500/30 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group hover:border-amber-500/60 transition-all">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/20 rounded-full">
+                                🎨 Скетч-стайл
+                            </span>
+                            <span class="text-xs font-black text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full">
+                                -35% от базовой цены
+                            </span>
+                        </div>
+                        
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">Скетчевый арт</h4>
+                            <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
+                                Аккуратный скетчевый лайн с качественным базовым покрасом и проработкой деталей.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 space-y-2 text-xs text-slate-300">
+                            <div class="flex justify-between items-center">
+                                <span>Headshot:</span>
+                                <div>
+                                    <strong class="text-emerald-400">318 ₽</strong> / <strong class="text-amber-300">318.5k 🍄</strong> / <strong class="text-pink-300">910 🐰</strong>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-slate-800/80 pt-1.5">
+                                <span>Halfbody:</span>
+                                <div>
+                                    <strong class="text-emerald-400">546 ₽</strong> / <strong class="text-amber-300">546k 🍄</strong> / <strong class="text-pink-300">1,560 🐰</strong>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-slate-800/80 pt-1.5">
+                                <span>Fullbody:</span>
+                                <div>
+                                    <strong class="text-emerald-400">773 ₽</strong> / <strong class="text-amber-300">773.5k 🍄</strong> / <strong class="text-pink-300">2,210 🐰</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="selectSketchStyle('sketch_art')" class="mt-6 w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> Выбрать в калькуляторе
+                    </button>
+                </div>
+
+                <!-- Блок 2: Простой скетч -->
+                <div class="bg-slate-900/90 border border-amber-500/30 rounded-3xl p-6 flex flex-col justify-between relative overflow-hidden group hover:border-amber-500/60 transition-all">
+                    <div class="space-y-4">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-bold px-3 py-1 bg-amber-500/10 text-amber-300 border border-amber-500/20 rounded-full">
+                                ⚡ Быстрый набросок
+                            </span>
+                            <span class="text-xs font-black text-rose-400 bg-rose-500/10 border border-rose-500/20 px-3 py-1 rounded-full">
+                                -50% от базовой цены
+                            </span>
+                        </div>
+
+                        <div>
+                            <h4 class="text-2xl font-bold text-white">Простой скетч</h4>
+                            <p class="text-slate-300 text-xs sm:text-sm mt-2 leading-relaxed">
+                                Быстрый и лёгкий набросок с базовой заливкой, легким тоном или монохромом.
+                            </p>
+                        </div>
+
+                        <div class="bg-slate-950/80 rounded-2xl p-4 border border-slate-800 space-y-2 text-xs text-slate-300">
+                            <div class="flex justify-between items-center">
+                                <span>Headshot:</span>
+                                <div>
+                                    <strong class="text-emerald-400">245 ₽</strong> / <strong class="text-amber-300">245k 🍄</strong> / <strong class="text-pink-300">700 🐰</strong>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-slate-800/80 pt-1.5">
+                                <span>Halfbody:</span>
+                                <div>
+                                    <strong class="text-emerald-400">420 ₽</strong> / <strong class="text-amber-300">420k 🍄</strong> / <strong class="text-pink-300">1,200 🐰</strong>
+                                </div>
+                            </div>
+                            <div class="flex justify-between items-center border-t border-slate-800/80 pt-1.5">
+                                <span>Fullbody:</span>
+                                <div>
+                                    <strong class="text-emerald-400">595 ₽</strong> / <strong class="text-amber-300">595k 🍄</strong> / <strong class="text-pink-300">1,700 🐰</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="selectSketchStyle('simple_sketch')" class="mt-6 w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-amber-300 text-xs font-bold rounded-xl transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-calculator"></i> Выбрать в калькуляторе
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Интерактивный Калькулятор -->
         <section id="calculator" class="space-y-6 pt-4 scroll-mt-20">
             <div class="border-t border-slate-800/80 pt-8">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
@@ -297,13 +424,16 @@
                         </p>
                     </div>
 
-                    <!-- Currency Switcher Toggle -->
-                    <div class="bg-slate-900 border border-slate-800 p-1 rounded-2xl flex items-center self-start sm:self-auto shrink-0">
-                        <button id="curr-rub" onclick="setCurrency('RUB')" class="px-4 py-2 rounded-xl text-xs font-bold transition-all bg-emerald-500 text-white shadow-md">
-                            💳 Рубли (₽)
+                    <!-- Currency Switcher Toggle (3 Currencies) -->
+                    <div class="bg-slate-900 border border-slate-800 p-1 rounded-2xl flex items-center self-start sm:self-auto shrink-0 gap-1">
+                        <button id="curr-rub" onclick="setCurrency('RUB')" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-emerald-500 text-white shadow-md">
+                            💳 Рубли
                         </button>
-                        <button id="curr-mush" onclick="setCurrency('MUSH')" class="px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">
+                        <button id="curr-mush" onclick="setCurrency('MUSH')" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">
                             🍄 Грибы
+                        </button>
+                        <button id="curr-rab" onclick="setCurrency('RAB')" class="px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white">
+                            🐰 Кроли
                         </button>
                     </div>
                 </div>
@@ -312,32 +442,41 @@
                     <!-- Calculator Controls Column -->
                     <div class="lg:col-span-7 bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
                         
-                        <!-- Option 1: Select Type -->
+                        <!-- Option 1: Select Format -->
                         <div class="space-y-3">
-                            <label class="text-xs font-bold uppercase tracking-wider text-slate-400 block">1. Выберите тип арта</label>
+                            <label class="text-xs font-bold uppercase tracking-wider text-slate-400 block">1. Выберите формат арта</label>
                             <div class="grid grid-cols-3 gap-3">
                                 <button type="button" onclick="setArtType('headshot')" id="btn-headshot" class="art-type-btn p-3 rounded-2xl border border-amber-500/50 bg-amber-500/10 text-amber-300 flex flex-col items-center justify-center text-center transition-all">
                                     <span class="text-xl mb-1">👤</span>
                                     <span class="text-xs font-bold">Headshot</span>
-                                    <span class="text-[10px] opacity-80 mt-0.5 price-display" data-rub="490 ₽" data-mush="490,000 🍄">490 ₽</span>
                                 </button>
                                 <button type="button" onclick="setArtType('halfbody')" id="btn-halfbody" class="art-type-btn p-3 rounded-2xl border border-slate-800 bg-slate-950 text-slate-400 flex flex-col items-center justify-center text-center hover:border-slate-700 transition-all">
                                     <span class="text-xl mb-1">🧍‍♂️</span>
                                     <span class="text-xs font-bold">Halfbody</span>
-                                    <span class="text-[10px] opacity-80 mt-0.5 price-display" data-rub="840 ₽" data-mush="840,000 🍄">840 ₽</span>
                                 </button>
                                 <button type="button" onclick="setArtType('fullbody')" id="btn-fullbody" class="art-type-btn p-3 rounded-2xl border border-slate-800 bg-slate-950 text-slate-400 flex flex-col items-center justify-center text-center hover:border-slate-700 transition-all">
                                     <span class="text-xl mb-1">🧍</span>
                                     <span class="text-xs font-bold">Fullbody</span>
-                                    <span class="text-[10px] opacity-80 mt-0.5 price-display" data-rub="1,190 ₽" data-mush="1,190,000 🍄">1,190 ₽</span>
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Option 2: Character Count -->
-                        <div class="space-y-3">
+                        <!-- Option 1.5: Select Art Style -->
+                        <div class="space-y-2 pt-2 border-t border-slate-800/80">
                             <div class="flex justify-between items-center">
-                                <label class="text-xs font-bold uppercase tracking-wider text-slate-400">2. Количество персонажей</label>
+                                <label for="style-select" class="text-xs font-bold uppercase tracking-wider text-slate-400 block">2. Выберите стиль / тип рисовки</label>
+                            </div>
+                            <select id="style-select" onchange="setStyle(this.value)" class="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-amber-500/50 transition-all">
+                                <option value="full_art">🎨 Полноценный арт</option>
+                                <option value="sketch_art">✏️ Скетчевый арт (-35%)</option>
+                                <option value="simple_sketch">⚡ Простой скетч (-50%)</option>
+                            </select>
+                        </div>
+
+                        <!-- Option 2: Character Count -->
+                        <div class="space-y-3 pt-2 border-t border-slate-800/80">
+                            <div class="flex justify-between items-center">
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-400">3. Количество персонажей</label>
                                 <span class="text-xs text-amber-400 font-semibold" id="char-multiplier-text">+0% к стоимости</span>
                             </div>
                             <div class="flex items-center gap-4 bg-slate-950 border border-slate-800 p-2 rounded-2xl">
@@ -349,7 +488,7 @@
 
                         <!-- Option 3: Additional Options & Urgent -->
                         <div class="space-y-3 pt-2 border-t border-slate-800/80">
-                            <label class="text-xs font-bold uppercase tracking-wider text-slate-400 block">3. Дополнительные опции</label>
+                            <label class="text-xs font-bold uppercase tracking-wider text-slate-400 block">4. Дополнительные опции</label>
                             
                             <label class="flex items-center justify-between p-3.5 bg-slate-950 border border-slate-800 rounded-2xl cursor-pointer hover:border-slate-700 transition-all">
                                 <div class="flex items-center gap-3">
@@ -380,8 +519,8 @@
 
                         <!-- Option 4: Note / Comment -->
                         <div class="space-y-2 pt-2 border-t border-slate-800/80">
-                            <label class="text-xs font-bold uppercase tracking-wider text-slate-400 block">4. Комментарий или дедлайн (опционально)</label>
-                            <input type="text" id="order-notes" oninput="updateTemplateText()" placeholder="Например: Порода кот, ДР 15 октября, арт в свитере..." class="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500/50 transition-all">
+                            <label class="text-xs font-bold uppercase tracking-wider text-slate-400 block">5. Комментарий или дедлайн (опционально)</label>
+                            <input type="text" id="order-notes" oninput="calculateTotal()" placeholder="Например: ДР 15 октября..." class="w-full bg-slate-950 border border-slate-800 rounded-2xl px-4 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500/50 transition-all">
                         </div>
 
                     </div>
@@ -391,7 +530,7 @@
                         <div class="space-y-4">
                             <div class="flex items-center justify-between">
                                 <span class="text-xs font-extrabold uppercase tracking-wider text-amber-400">Итоговая стоимость</span>
-                                <span class="text-[10px] bg-rose-500/10 text-rose-300 px-2 py-0.5 rounded-full border border-rose-500/20 font-bold">-30% Учтено</span>
+                                <span class="text-[10px] bg-rose-500/10 text-rose-300 px-2 py-0.5 rounded-full border border-rose-500/20 font-bold" id="style-discount-badge">Полноценка</span>
                             </div>
 
                             <div class="bg-slate-950/90 border border-slate-800 p-5 rounded-2xl text-center space-y-1">
@@ -410,7 +549,7 @@
                                     <span class="text-[10px] text-slate-500">Готово к отправке</span>
                                 </div>
                                 <div class="relative">
-                                    <textarea id="template-text" readonly rows="7" class="w-full bg-slate-950 border border-slate-800 rounded-2xl p-3.5 text-xs font-mono text-slate-300 resize-none focus:outline-none select-all leading-relaxed"></textarea>
+                                    <textarea id="template-text" readonly rows="8" class="w-full bg-slate-950 border border-slate-800 rounded-2xl p-3.5 text-xs font-mono text-slate-300 resize-none focus:outline-none select-all leading-relaxed"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -430,92 +569,26 @@
             </div>
         </section>
 
+        <!-- Блок Галереи -->
         <section id="gallery" class="space-y-6 pt-4 scroll-mt-20">
             <div class="border-t border-slate-800/80 pt-8">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
-                    <div>
-                        <h3 class="text-2xl font-extrabold text-white flex items-center gap-3">
-                            <i class="fa-solid fa-images text-rose-400"></i> Галерея работ
-                        </h3>
-                        <p class="text-slate-400 text-xs sm:text-sm mt-1">
-                            Примеры выполненных артов по категориям. Нажмите на изображение для увеличения.
-                        </p>
-                    </div>
-
-                    <!-- Category Filters -->
-                    <div class="flex flex-wrap items-center gap-2">
-                        <button onclick="filterGallery('all')" class="gallery-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-rose-500 text-white" data-cat="all">
-                            Все работы
-                        </button>
-                        <button onclick="filterGallery('cats')" class="gallery-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-900 border border-slate-800 text-slate-400 hover:text-white" data-cat="cats">
-                            🐱 Коты / Собаки
-                        </button>
-                        <button onclick="filterGallery('humans')" class="gallery-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-900 border border-slate-800 text-slate-400 hover:text-white" data-cat="humans">
-                            👤 Люди
-                        </button>
-                        <button onclick="filterGallery('furry')" class="gallery-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-900 border border-slate-800 text-slate-400 hover:text-white" data-cat="furry">
-                            🦊 Фури / Антропо
-                        </button>
-                    </div>
+                <div class="text-center max-w-2xl mx-auto space-y-2 mb-6">
+                    <h3 class="text-2xl font-extrabold text-white flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-images text-rose-400"></i> Галерея работ
+                    </h3>
+                    <p class="text-slate-400 text-xs sm:text-sm">
+                        Примеры выполненных заказов и иллюстраций.
+                    </p>
                 </div>
 
-                <!-- Gallery Grid -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" id="gallery-grid">
-                    
-                    <!-- Gallery Item 1 -->
-                    <div class="gallery-item cats group relative aspect-square rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden cursor-pointer" onclick="openLightbox('https://placehold.co/800x800/1e293b/fb923c?text=%D0%9A%D0%BE%D1%82+%D0%B2+%D1%88%D0%BB%D1%8F%D0%BF%D0%B5', 'Рыжий Кот • Headshot')">
-                        <img src="https://placehold.co/400x400/1e293b/fb923c?text=%D0%9A%D0%BE%D1%82+%D0%B2+%D1%88%D0%BB%D1%8F%D0%BF%D0%B5" alt="Арт Кот" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-                            <span class="text-[10px] text-amber-400 font-bold">🐱 Коты / Собаки</span>
-                            <span class="text-xs font-bold text-white">Рыжий кот</span>
-                        </div>
+                <div class="bg-slate-900/60 border-2 border-dashed border-slate-800 rounded-3xl p-12 text-center space-y-4 max-w-2xl mx-auto">
+                    <div class="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/20 flex items-center justify-center text-3xl mx-auto text-rose-400">
+                        🖼️
                     </div>
-
-                    <!-- Gallery Item 2 -->
-                    <div class="gallery-item humans group relative aspect-square rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden cursor-pointer" onclick="openLightbox('https://placehold.co/800x800/1e293b/38bdf8?text=%D0%9F%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%B6+%D0%B0%D0%BD%D0%B8%D0%BC%D0%B5', 'Девушка-маг • Halfbody')">
-                        <img src="https://placehold.co/400x400/1e293b/38bdf8?text=%D0%9F%D0%B5%D1%80%D1%81%D0%BE%D0%BD%D0%B0%D0%B6+%D0%B0%D0%BD%D0%B8%D0%BC%D0%B5" alt="Арт Девушка" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-                            <span class="text-[10px] text-sky-400 font-bold">👤 Люди</span>
-                            <span class="text-xs font-bold text-white">Девушка-маг</span>
-                        </div>
+                    <div class="space-y-1">
+                        <h4 class="text-xl font-bold text-white">Временно отсутствуют</h4>
+                        <p class="text-slate-400 text-xs sm:text-sm">Раздел находится на обновлении и будет дополняться новыми артами.</p>
                     </div>
-
-                    <!-- Gallery Item 3 -->
-                    <div class="gallery-item furry group relative aspect-square rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden cursor-pointer" onclick="openLightbox('https://placehold.co/800x800/1e293b/f43f5e?text=%D0%A4%D1%83%D1%80%D0%B8+%D0%9B%D0%B8%D1%81', 'Фенеки-лисик • Fullbody')">
-                        <img src="https://placehold.co/400x400/1e293b/f43f5e?text=%D0%A4%D1%83%D1%80%D0%B8+%D0%9B%D0%B8%D1%81" alt="Арт Фури" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-                            <span class="text-[10px] text-rose-400 font-bold">🦊 Фури</span>
-                            <span class="text-xs font-bold text-white">Лисичка</span>
-                        </div>
-                    </div>
-
-                    <!-- Gallery Item 4 -->
-                    <div class="gallery-item cats group relative aspect-square rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden cursor-pointer" onclick="openLightbox('https://placehold.co/800x800/1e293b/34d399?text=%D0%A1%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0+%D0%A5%D0%B0%D1%81%D0%BA%D0%B8', 'Хаски • Fullbody')">
-                        <img src="https://placehold.co/400x400/1e293b/34d399?text=%D0%A1%D0%BE%D0%B1%D0%B0%D0%BA%D0%B0+%D0%A5%D0%B0%D1%81%D0%BA%D0%B8" alt="Арт Собака" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-                            <span class="text-[10px] text-emerald-400 font-bold">🐱 Коты / Собаки</span>
-                            <span class="text-xs font-bold text-white">Хаски</span>
-                        </div>
-                    </div>
-
-                    <!-- Gallery Item 5 -->
-                    <div class="gallery-item humans group relative aspect-square rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden cursor-pointer" onclick="openLightbox('https://placehold.co/800x800/1e293b/a855f7?text=%D0%9F%D0%B0%D1%80%D0%BD%D1%8B%D0%B9+%D0%90%D1%80%D1%82', 'Парный арт • 2 Персонажа')">
-                        <img src="https://placehold.co/400x400/1e293b/a855f7?text=%D0%9F%D0%B0%D1%80%D0%BD%D1%8B%D0%B9+%D0%90%D1%80%D1%82" alt="Арт Пара" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-                            <span class="text-[10px] text-purple-400 font-bold">👤 Люди</span>
-                            <span class="text-xs font-bold text-white">Парный портрет</span>
-                        </div>
-                    </div>
-
-                    <!-- Gallery Item 6 -->
-                    <div class="gallery-item cats group relative aspect-square rounded-2xl bg-slate-900 border border-slate-800 overflow-hidden cursor-pointer" onclick="openLightbox('https://placehold.co/800x800/1e293b/f59e0b?text=%D0%A7%D0%B5%D1%80%D0%BD%D1%8B%D0%B9+%D0%9A%D0%BE%D1%82', 'Мейн-кун • Headshot')">
-                        <img src="https://placehold.co/400x400/1e293b/f59e0b?text=%D0%A7%D0%B5%D1%80%D0%BD%D1%8B%D0%B9+%D0%9A%D0%BE%D1%82" alt="Арт Чёрный Кот" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-3">
-                            <span class="text-[10px] text-amber-400 font-bold">🐱 Коты / Собаки</span>
-                            <span class="text-xs font-bold text-white">Чёрный кот</span>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
@@ -545,7 +618,7 @@
                         Если арт нужен строго к определенной дате (праздник, день рождения и т.д.):
                     </p>
                     <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 text-xs sm:text-sm font-semibold text-emerald-400">
-                        ➕ Фиксированная доплата: <span class="text-white font-extrabold">400 ₽</span> (или <span class="text-amber-300 font-extrabold">400,000 🍄</span>)
+                        ➕ Доплата: <span class="text-white font-extrabold">400 ₽</span> / <span class="text-amber-300 font-extrabold">400,000 🍄</span> / <span class="text-pink-300 font-extrabold">800 🐰</span>
                     </div>
                 </div>
             </div>
@@ -560,14 +633,12 @@
             </div>
 
             <div class="bg-slate-900/70 border border-slate-800 rounded-3xl p-6 sm:p-8 space-y-6">
-                <!-- Summary Header -->
                 <div class="p-4 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-sm font-semibold flex items-center gap-3">
                     <span class="text-2xl">✨</span>
                     <span><strong>В целом:</strong> Рисую «ДА» почти на всё, но со своими нюансами ниже!</span>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs sm:text-sm">
-                    <!-- Main Focus / DOs -->
                     <div class="space-y-3">
                         <h4 class="font-bold text-emerald-400 text-base flex items-center gap-2">
                             <i class="fa-solid fa-thumbs-up"></i> Что рисую с удовольствием:
@@ -575,7 +646,7 @@
                         <ul class="space-y-2 text-slate-300">
                             <li class="flex items-start gap-2">
                                 <i class="fa-solid fa-cat text-amber-400 mt-1"></i>
-                                <span><strong>Котов / Собак</strong> — в основном специализируюсь на них! (Референсы очень приветствуются).</span>
+                                <span><strong>Котов / Собак / Животных</strong> — специализируюсь на них! (Референсы приветствуются).</span>
                             </li>
                             <li class="flex items-start gap-2">
                                 <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
@@ -584,7 +655,6 @@
                         </ul>
                     </div>
 
-                    <!-- Limits & Exceptions -->
                     <div class="space-y-3">
                         <h4 class="font-bold text-rose-400 text-base flex items-center gap-2">
                             <i class="fa-solid fa-triangle-exclamation"></i> Нюансы и ограничения:
@@ -620,9 +690,7 @@
                     </p>
                 </div>
 
-                <!-- Contact Links -->
                 <div class="flex flex-col sm:flex-row justify-center gap-4 max-w-xl mx-auto pt-2">
-                    <!-- Telegram Bot Link -->
                     <a href="https://t.me/nastkotoed_zakaz_bot" target="_blank" rel="noopener noreferrer" 
                        class="flex-1 bg-gradient-to-r from-sky-500 to-blue-600 hover:from-sky-400 hover:to-blue-500 text-white font-bold px-6 py-4 rounded-2xl flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5 shadow-lg shadow-sky-500/20">
                         <i class="fa-solid fa-robot text-2xl"></i>
@@ -632,7 +700,6 @@
                         </div>
                     </a>
 
-                    <!-- Telegram Channel Link -->
                     <a href="https://t.me/nast_kotoed" target="_blank" rel="noopener noreferrer" 
                        class="flex-1 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-white font-bold px-6 py-4 rounded-2xl flex items-center justify-center gap-3 transition-all transform hover:-translate-y-0.5">
                         <i class="fa-brands fa-telegram text-sky-400 text-2xl"></i>
@@ -647,20 +714,6 @@
 
     </main>
 
-    <div id="lightbox" class="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md hidden items-center justify-center p-4" onclick="closeLightbox()">
-        <div class="relative max-w-3xl w-full bg-slate-900 border border-slate-800 rounded-3xl p-4 overflow-hidden" onclick="event.stopPropagation()">
-            <button onclick="closeLightbox()" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-300 flex items-center justify-center text-sm font-bold z-10 transition-all">
-                ✕
-            </button>
-            <div class="space-y-3">
-                <img id="lightbox-img" src="" alt="Enlarged Art" class="w-full max-h-[70vh] object-contain rounded-2xl bg-slate-950">
-                <div class="text-center pt-2">
-                    <p id="lightbox-title" class="text-sm font-bold text-white"></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none bg-slate-900 border border-emerald-500/40 text-white px-5 py-3 rounded-2xl shadow-xl flex items-center gap-3">
         <div class="w-8 h-8 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-sm">
             ✓
@@ -674,38 +727,42 @@
     <footer class="mt-16 border-t border-slate-900 text-center py-6 text-xs text-slate-500">
         <div class="max-w-5xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
             <span>© nast_kotoed. Все права защищены.</span>
-            <span class="text-[11px] text-slate-600">Курс грибов: 1 ₽ = 1,000 🍄</span>
+            <span class="text-[11px] text-slate-600">Курсы: 1 ₽ = 1,000 🍄 | 1 ₽ = 2 🐰 (Кроли без акций)</span>
         </div>
     </footer>
 
     <script>
-        // State management
-        const prices = {
-            headshot: { rub: 490, mush: 490000, title: 'Голова (Headshot)' },
-            halfbody: { rub: 840, mush: 840000, title: 'Халф (Halfbody)' },
-            fullbody: { rub: 1190, mush: 1190000, title: 'Фулл (Fullbody)' }
+        // Base prices configuration (Full price before discounts)
+        const basePrices = {
+            headshot: { baseRub: 700, title: 'Голова (Headshot)' },
+            halfbody: { baseRub: 1200, title: 'Халф (Halfbody)' },
+            fullbody: { baseRub: 1700, title: 'Фулл (Fullbody)' }
         };
 
-        const urgentAddon = { rub: 400, mush: 400000 };
+        const styleMultipliers = {
+            full_art: { mult: 1.0, title: 'Полноценный арт', badge: 'Полноценка' },
+            sketch_art: { mult: 0.65, title: 'Скетчевый арт (-35%)', badge: 'Скетч -35%' },
+            simple_sketch: { mult: 0.50, title: 'Простой скетч (-50%)', badge: 'Скетч -50%' }
+        };
+
+        const urgentAddonRub = 400;
 
         let state = {
             artType: 'headshot',
-            currency: 'RUB', // RUB or MUSH
+            style: 'full_art',
+            currency: 'RUB', // 'RUB', 'MUSH', 'RAB'
             charCount: 1,
             isUrgent: false,
             isNsfw: false
         };
 
-        // Initialize state
         window.addEventListener('DOMContentLoaded', () => {
             calculateTotal();
         });
 
-        // Set Art Type
         function setArtType(type) {
             state.artType = type;
             
-            // Update UI buttons
             document.querySelectorAll('.art-type-btn').forEach(btn => {
                 btn.classList.remove('border-amber-500/50', 'bg-amber-500/10', 'text-amber-300');
                 btn.classList.add('border-slate-800', 'bg-slate-950', 'text-slate-400');
@@ -720,38 +777,49 @@
             calculateTotal();
         }
 
-        // Quick select from price cards
+        function setStyle(styleKey) {
+            state.style = styleKey;
+            document.getElementById('style-select').value = styleKey;
+            calculateTotal();
+        }
+
         function selectArtType(type) {
             setArtType(type);
+            setStyle('full_art');
             document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
         }
 
-        // Currency switch
+        function selectSketchStyle(styleKey) {
+            setStyle(styleKey);
+            document.getElementById('calculator').scrollIntoView({ behavior: 'smooth' });
+        }
+
         function setCurrency(curr) {
             state.currency = curr;
 
             const rubBtn = document.getElementById('curr-rub');
             const mushBtn = document.getElementById('curr-mush');
+            const rabBtn = document.getElementById('curr-rab');
+
+            // Reset styles
+            [rubBtn, mushBtn, rabBtn].forEach(b => {
+                b.className = "px-3 py-1.5 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white";
+            });
 
             if (curr === 'RUB') {
-                rubBtn.className = "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-emerald-500 text-white shadow-md";
-                mushBtn.className = "px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white";
+                rubBtn.className = "px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-emerald-500 text-white shadow-md";
                 document.getElementById('urgent-price-tag').textContent = "+400 ₽";
-            } else {
-                mushBtn.className = "px-4 py-2 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-md";
-                rubBtn.className = "px-4 py-2 rounded-xl text-xs font-bold transition-all text-slate-400 hover:text-white";
+            } else if (curr === 'MUSH') {
+                mushBtn.className = "px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-amber-500 text-slate-950 shadow-md";
                 document.getElementById('urgent-price-tag').textContent = "+400,000 🍄";
+            } else if (curr === 'RAB') {
+                rabBtn.className = "px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-pink-500 text-white shadow-md";
+                document.getElementById('urgent-price-tag').textContent = "+800 🐰";
             }
-
-            // Update price displays in options
-            document.querySelectorAll('.price-display').forEach(el => {
-                el.textContent = curr === 'RUB' ? el.getAttribute('data-rub') : el.getAttribute('data-mush');
-            });
 
             calculateTotal();
         }
 
-        // Character Counter
         function changeCharCount(delta) {
             state.charCount = Math.max(1, Math.min(5, state.charCount + delta));
             document.getElementById('char-count-display').textContent = `${state.charCount} ${getCharWord(state.charCount)}`;
@@ -768,46 +836,67 @@
             return 'персонажей';
         }
 
-        // Calculate Totals
         function calculateTotal() {
             state.isUrgent = document.getElementById('urgent-check').checked;
             state.isNsfw = document.getElementById('nsfw-check').checked;
 
-            const basePriceObj = prices[state.artType];
-            const baseRub = basePriceObj.rub * state.charCount;
-            const baseMush = basePriceObj.mush * state.charCount;
+            const baseRub = basePrices[state.artType].baseRub;
+            const styleMult = styleMultipliers[state.style].mult;
 
-            const totalRub = baseRub + (state.isUrgent ? urgentAddon.rub : 0);
-            const totalMush = baseMush + (state.isUrgent ? urgentAddon.mush : 0);
+            // RUB & MUSH enjoy -30% event discount (0.7)
+            const rubPricePerChar = Math.round(baseRub * styleMult * 0.7);
+            const mushPricePerChar = Math.round(baseRub * styleMult * 0.7 * 1000);
+            
+            // RAB: No -30% discount (1 ₽ = 2 🐰 from base style price)
+            const rabPricePerChar = Math.round(baseRub * styleMult * 2);
+
+            const totalRub = (rubPricePerChar * state.charCount) + (state.isUrgent ? urgentAddonRub : 0);
+            const totalMush = (mushPricePerChar * state.charCount) + (state.isUrgent ? (urgentAddonRub * 1000) : 0);
+            const totalRab = (rabPricePerChar * state.charCount) + (state.isUrgent ? (urgentAddonRub * 2) : 0);
 
             const displayRub = `${totalRub.toLocaleString('ru-RU')} ₽`;
             const displayMush = `${totalMush.toLocaleString('ru-RU')} 🍄`;
+            const displayRab = `${totalRab.toLocaleString('ru-RU')} 🐰`;
 
-            if (state.currency === 'RUB') {
+            document.getElementById('style-discount-badge').textContent = styleMultipliers[state.style].badge;
+
+            if (state.currency === 'RAB') {
+                document.getElementById('total-price-display').textContent = displayRab;
+                document.getElementById('total-price-alt').textContent = `или ${displayRub} / ${displayMush}`;
+            } else if (state.currency === 'RUB') {
                 document.getElementById('total-price-display').textContent = displayRub;
-                document.getElementById('total-price-alt').textContent = `или ${displayMush}`;
+                document.getElementById('total-price-alt').textContent = `или ${displayMush} / ${displayRab}`;
             } else {
                 document.getElementById('total-price-display').textContent = displayMush;
-                document.getElementById('total-price-alt').textContent = `или ${displayRub}`;
+                document.getElementById('total-price-alt').textContent = `или ${displayRub} / ${displayRab}`;
             }
 
-            updateTemplateText(totalRub, totalMush);
+            updateTemplateText(totalRub, totalMush, totalRab);
         }
 
-        // Update Textarea Template
-        function updateTemplateText(totalRub, totalMush) {
+        function updateTemplateText(totalRub, totalMush, totalRab) {
             const notes = document.getElementById('order-notes').value.trim();
-            const currSymbol = state.currency === 'RUB' ? '₽' : '🍄';
-            const priceFormatted = state.currency === 'RUB' 
-                ? `${(prices[state.artType].rub * state.charCount + (state.isUrgent ? urgentAddon.rub : 0)).toLocaleString('ru-RU')} ₽`
-                : `${(prices[state.artType].mush * state.charCount + (state.isUrgent ? urgentAddon.mush : 0)).toLocaleString('ru-RU')} 🍄`;
+            
+            let priceFormatted = '';
+            let currencyName = '';
+            if (state.currency === 'RUB') {
+                priceFormatted = `${totalRub.toLocaleString('ru-RU')} ₽`;
+                currencyName = 'Рубли (₽)';
+            } else if (state.currency === 'MUSH') {
+                priceFormatted = `${totalMush.toLocaleString('ru-RU')} 🍄`;
+                currencyName = 'Грибы (🍄)';
+            } else {
+                priceFormatted = `${totalRab.toLocaleString('ru-RU')} 🐰`;
+                currencyName = 'Кроли (🐰) [Без акций]';
+            }
 
             let template = `✨ НОВЫЙ ЗАКАЗ ДЛЯ NAST_KOTOED ✨\n`;
             template += `-----------------------------\n`;
-            template += `• Формат: ${prices[state.artType].title}\n`;
+            template += `• Формат: ${basePrices[state.artType].title}\n`;
+            template += `• Стиль: ${styleMultipliers[state.style].title}\n`;
             template += `• Персонажи: ${state.charCount} ${getCharWord(state.charCount)}\n`;
-            template += `• Оплата в: ${state.currency === 'RUB' ? 'Рублях (₽)' : 'Грибах (🍄)'}\n`;
-            template += `• Срочный заказ (ДД): ${state.isUrgent ? 'Да (+400 ₽ / 400k 🍄)' : 'Стандартный срок'}\n`;
+            template += `• Оплата в: ${currencyName}\n`;
+            template += `• Срочный заказ (ДД): ${state.isUrgent ? 'Да' : 'Стандартный срок'}\n`;
             if (state.isNsfw) template += `• Элементы: NSFW (18+)\n`;
             if (notes) template += `• Пожелания/Дедлайн: ${notes}\n`;
             template += `-----------------------------\n`;
@@ -816,54 +905,18 @@
             document.getElementById('template-text').value = template;
         }
 
-        // Copy Order Text
         function copyOrderText() {
             const textarea = document.getElementById('template-text');
             textarea.select();
             
             try {
                 document.execCommand('copy');
-                showToast("Скопировано!", "Текст заказа в буфере. Отправьте его бота!");
+                showToast("Скопировано!", "Текст заказа в буфере. Отправьте его в бота!");
             } catch (err) {
                 showToast("Ошибка", "Не удалось скопировать текст");
             }
         }
 
-        // Gallery Filter
-        function filterGallery(category) {
-            document.querySelectorAll('.gallery-filter-btn').forEach(btn => {
-                if (btn.getAttribute('data-cat') === category) {
-                    btn.className = "gallery-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-rose-500 text-white";
-                } else {
-                    btn.className = "gallery-filter-btn px-3 py-1.5 rounded-xl text-xs font-bold transition-all bg-slate-900 border border-slate-800 text-slate-400 hover:text-white";
-                }
-            });
-
-            document.querySelectorAll('.gallery-item').forEach(item => {
-                if (category === 'all' || item.classList.contains(category)) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        }
-
-        // Lightbox Modal
-        function openLightbox(imgSrc, title) {
-            document.getElementById('lightbox-img').src = imgSrc;
-            document.getElementById('lightbox-title').textContent = title;
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.remove('hidden');
-            lightbox.classList.add('flex');
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.classList.add('hidden');
-            lightbox.classList.remove('flex');
-        }
-
-        // Toast Notification System
         function showToast(title, msg) {
             const toast = document.getElementById('toast');
             document.getElementById('toast-title').textContent = title;
